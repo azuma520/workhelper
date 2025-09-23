@@ -1,0 +1,28 @@
+# dependencies
+/node_modules
+.pnpm-*
+/.pnp.*
+.yarn/*
+/.yarn
+.yarnrc.yml
+
+# next.js
+/.next
+/out
+
+# build
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# env (可選：如果你要把 .env 加入版控就移除此行)
+.env*
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
