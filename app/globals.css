@@ -3,11 +3,1142 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* 現代配色系統 - 藍紫色主調 */
+  --primary: #6366f1;        /* 主色 - Indigo */
+  --primary-dark: #4f46e5;   /* 深色主色 */
+  --primary-light: #818cf8;  /* 淺色主色 */
+  --accent: #f59e0b;         /* 點綴色 - 橙色 */
+  --success: #10b981;        /* 成功 - 綠色 */
+  --warning: #f59e0b;        /* 警告 - 橙色 */
+  --error: #ef4444;          /* 錯誤 - 紅色 */
+  --info: #3b82f6;           /* 資訊 - 藍色 */
+  
+  /* 高級灰色階 */
+  --gray-50: #f8fafc;
+  --gray-100: #f1f5f9;
+  --gray-200: #e2e8f0;
+  --gray-300: #cbd5e1;
+  --gray-400: #94a3b8;
+  --gray-500: #64748b;
+  --gray-600: #475569;
+  --gray-700: #334155;
+  --gray-800: #1e293b;
+  --gray-900: #0f172a;
+  
+  /* 菁英級字體系統 */
+  --font-family-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-family-mono: 'Monaco', 'Cascadia Code', monospace;
+  
+  /* 字體大小系統 */
+  --text-xs: 0.75rem;        /* 12px */
+  --text-sm: 0.875rem;       /* 14px */
+  --text-base: 1rem;         /* 16px */
+  --text-lg: 1.125rem;       /* 18px */
+  --text-xl: 1.25rem;        /* 20px */
+  --text-2xl: 1.5rem;        /* 24px */
+  --text-3xl: 1.875rem;      /* 30px */
+  --text-4xl: 2.25rem;       /* 36px */
+  --text-5xl: 3rem;          /* 48px */
+  --text-6xl: 3.75rem;       /* 60px */
+  
+  /* 字體權重系統 */
+  --font-thin: 100;
+  --font-extralight: 200;
+  --font-light: 300;
+  --font-normal: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+  --font-extrabold: 800;
+  --font-black: 900;
+  
+  /* 行高系統 */
+  --leading-tight: 1.25;
+  --leading-snug: 1.375;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.625;
+  --leading-loose: 2;
+  
+  /* 字間距系統 */
+  --tracking-tighter: -0.05em;
+  --tracking-tight: -0.025em;
+  --tracking-normal: 0em;
+  --tracking-wide: 0.025em;
+  --tracking-wider: 0.05em;
+  --tracking-widest: 0.1em;
+  
+  /* 菁英級陰影系統 */
+  --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  --shadow-3xl: 0 35px 60px -12px rgba(0, 0, 0, 0.3);
+  
+  /* 彩色陰影 */
+  --shadow-blue: 0 10px 15px -3px rgba(59, 130, 246, 0.1), 0 4px 6px -2px rgba(59, 130, 246, 0.05);
+  --shadow-green: 0 10px 15px -3px rgba(16, 185, 129, 0.1), 0 4px 6px -2px rgba(16, 185, 129, 0.05);
+  --shadow-purple: 0 10px 15px -3px rgba(147, 51, 234, 0.1), 0 4px 6px -2px rgba(147, 51, 234, 0.05);
+  --shadow-orange: 0 10px 15px -3px rgba(251, 146, 60, 0.1), 0 4px 6px -2px rgba(251, 146, 60, 0.05);
+  
+  /* 內陰影 */
+  --shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+  --shadow-inner-lg: inset 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  
+  /* 發光效果 */
+  --shadow-glow-blue: 0 0 20px rgba(59, 130, 246, 0.3);
+  --shadow-glow-green: 0 0 20px rgba(16, 185, 129, 0.3);
+  --shadow-glow-purple: 0 0 20px rgba(147, 51, 234, 0.3);
+  --shadow-glow-orange: 0 0 20px rgba(251, 146, 60, 0.3);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: #f9fafb;
+  color: #111827;
+  font-family: var(--font-family-sans);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 菁英級字體系統 */
+@layer components {
+  /* 標題層次 */
+  .elite-heading-1 {
+    @apply text-5xl font-bold leading-tight tracking-tight text-gray-900;
+    font-family: var(--font-family-sans);
+  }
+  
+  .elite-heading-2 {
+    @apply text-4xl font-bold leading-tight tracking-tight text-gray-900;
+    font-family: var(--font-family-sans);
+  }
+  
+  .elite-heading-3 {
+    @apply text-3xl font-semibold leading-snug tracking-tight text-gray-900;
+    font-family: var(--font-family-sans);
+  }
+  
+  .elite-heading-4 {
+    @apply text-2xl font-semibold leading-snug tracking-tight text-gray-900;
+    font-family: var(--font-family-sans);
+  }
+  
+  .elite-heading-5 {
+    @apply text-xl font-semibold leading-snug tracking-tight text-gray-900;
+    font-family: var(--font-family-sans);
+  }
+  
+  .elite-heading-6 {
+    @apply text-lg font-semibold leading-snug tracking-tight text-gray-900;
+    font-family: var(--font-family-sans);
+  }
+  
+  /* 正文層次 */
+  .elite-body-large {
+    @apply text-lg leading-relaxed tracking-normal text-gray-700;
+    font-family: var(--font-family-sans);
+  }
+  
+  .elite-body {
+    @apply text-base leading-relaxed tracking-normal text-gray-700;
+    font-family: var(--font-family-sans);
+  }
+  
+  .elite-body-small {
+    @apply text-sm leading-normal tracking-normal text-gray-600;
+    font-family: var(--font-family-sans);
+  }
+  
+  .elite-caption {
+    @apply text-xs leading-normal tracking-wide text-gray-500;
+    font-family: var(--font-family-sans);
+  }
+  
+  /* 特殊字體樣式 */
+  .elite-display {
+    @apply text-6xl font-black leading-tight tracking-tighter text-gray-900;
+    font-family: var(--font-family-sans);
+  }
+  
+  .elite-subtitle {
+    @apply text-xl leading-relaxed tracking-wide text-gray-600;
+    font-family: var(--font-family-sans);
+  }
+  
+  .elite-label {
+    @apply text-sm font-medium leading-normal tracking-wide text-gray-700 uppercase;
+    font-family: var(--font-family-sans);
+  }
+  
+  .elite-code {
+    @apply text-sm font-normal leading-normal tracking-normal text-gray-800;
+    font-family: var(--font-family-mono);
+    background-color: var(--gray-100);
+    padding: 0.125rem 0.25rem;
+    border-radius: 0.25rem;
+  }
+  
+  .elite-metric-large {
+    @apply text-4xl font-bold leading-tight tracking-tight text-gray-900;
+    font-family: var(--font-family-sans);
+  }
+  
+  .elite-metric-medium {
+    @apply text-2xl font-bold leading-tight tracking-tight text-gray-900;
+    font-family: var(--font-family-sans);
+  }
+  
+  .elite-metric-small {
+    @apply text-lg font-semibold leading-tight tracking-tight text-gray-900;
+    font-family: var(--font-family-sans);
+  }
+  
+  /* 陰影系統類別 */
+  .elite-shadow-xs {
+    box-shadow: var(--shadow-xs);
+  }
+  
+  .elite-shadow-sm {
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .elite-shadow-md {
+    box-shadow: var(--shadow-md);
+  }
+  
+  .elite-shadow-lg {
+    box-shadow: var(--shadow-lg);
+  }
+  
+  .elite-shadow-xl {
+    box-shadow: var(--shadow-xl);
+  }
+  
+  .elite-shadow-2xl {
+    box-shadow: var(--shadow-2xl);
+  }
+  
+  .elite-shadow-3xl {
+    box-shadow: var(--shadow-3xl);
+  }
+  
+  /* 彩色陰影 */
+  .elite-shadow-blue {
+    box-shadow: var(--shadow-blue);
+  }
+  
+  .elite-shadow-green {
+    box-shadow: var(--shadow-green);
+  }
+  
+  .elite-shadow-purple {
+    box-shadow: var(--shadow-purple);
+  }
+  
+  .elite-shadow-orange {
+    box-shadow: var(--shadow-orange);
+  }
+  
+  /* 內陰影 */
+  .elite-shadow-inner {
+    box-shadow: var(--shadow-inner);
+  }
+  
+  .elite-shadow-inner-lg {
+    box-shadow: var(--shadow-inner-lg);
+  }
+  
+  /* 發光效果 */
+  .elite-glow-blue {
+    box-shadow: var(--shadow-glow-blue);
+  }
+  
+  .elite-glow-green {
+    box-shadow: var(--shadow-glow-green);
+  }
+  
+  .elite-glow-purple {
+    box-shadow: var(--shadow-glow-purple);
+  }
+  
+  .elite-glow-orange {
+    box-shadow: var(--shadow-glow-orange);
+  }
+  
+  /* 懸停陰影效果 */
+  .elite-shadow-hover {
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .elite-shadow-hover:hover {
+    box-shadow: var(--shadow-xl);
+  }
+  
+  .elite-shadow-hover-lg:hover {
+    box-shadow: var(--shadow-2xl);
+  }
+  
+  /* 背景圖案系統 */
+  .elite-bg-pattern-dots {
+    background-image: url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.05"%3E%3Ccircle cx="30" cy="30" r="2"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');
+  }
+  
+  .elite-bg-pattern-grid {
+    background-image: url('data:image/svg+xml,%3Csvg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg stroke="%23ffffff" stroke-opacity="0.03" stroke-width="1"%3E%3Cpath d="M0 0h40v40H0z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');
+  }
+  
+  .elite-bg-pattern-hexagon {
+    background-image: url('data:image/svg+xml,%3Csvg width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.02"%3E%3Cpath d="M40 0l34.64 20v40L40 80 5.36 60V20z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');
+  }
+  
+  .elite-bg-pattern-circles {
+    background-image: url('data:image/svg+xml,%3Csvg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.03"%3E%3Ccircle cx="50" cy="50" r="20"/%3E%3Ccircle cx="20" cy="20" r="8"/%3E%3Ccircle cx="80" cy="80" r="12"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');
+  }
+  
+  .elite-bg-pattern-lines {
+    background-image: url('data:image/svg+xml,%3Csvg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg stroke="%23ffffff" stroke-opacity="0.02" stroke-width="1"%3E%3Cpath d="M0 60h120M60 0v120"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');
+  }
+  
+  /* 動畫背景效果 */
+  .elite-bg-animated {
+    position: relative;
+    overflow: hidden;
+    /* 性能優化 */
+    will-change: transform;
+    transform: translateZ(0);
+  }
+  
+  .elite-bg-animated::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.02) 50%, transparent 70%);
+    animation: elite-shimmer 3s ease-in-out infinite;
+    pointer-events: none;
+  }
+  
+  .elite-bg-floating {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .elite-bg-floating::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('data:image/svg+xml,%3Csvg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.03"%3E%3Ccircle cx="10" cy="10" r="1"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');
+    animation: elite-float 20s linear infinite;
+    pointer-events: none;
+  }
+}
+
+/* 菁英級組件樣式 */
+@layer components {
+  .elite-card {
+    @apply bg-white rounded-2xl border border-gray-100 
+           transition-all duration-300 ease-out hover:-translate-y-1 hover:border-blue-200;
+    box-shadow: var(--shadow-md);
+  }
+  
+  .elite-card:hover {
+    box-shadow: var(--shadow-xl);
+  }
+  
+  .elite-card-elevated {
+    @apply bg-white rounded-2xl border border-gray-100 
+           transition-all duration-300 ease-out hover:-translate-y-1 hover:border-blue-200;
+    box-shadow: var(--shadow-lg);
+  }
+  
+  .elite-card-elevated:hover {
+    box-shadow: var(--shadow-2xl);
+  }
+  
+  .elite-button {
+    @apply bg-gradient-to-r from-blue-600 to-indigo-700 text-white 
+           px-6 py-3 rounded-xl font-semibold hover:from-blue-700 hover:to-indigo-800 
+           transition-all duration-200 transform hover:-translate-y-0.5;
+    box-shadow: var(--shadow-md);
+  }
+  
+  .elite-button:hover {
+    box-shadow: var(--shadow-lg);
+  }
+  
+  .elite-button-primary {
+    @apply bg-gradient-to-r from-blue-600 to-indigo-700 text-white 
+           px-6 py-3 rounded-xl font-semibold hover:from-blue-700 hover:to-indigo-800 
+           transition-all duration-200 transform hover:-translate-y-0.5;
+    box-shadow: var(--shadow-blue);
+  }
+  
+  .elite-button-primary:hover {
+    box-shadow: var(--shadow-xl), var(--shadow-glow-blue);
+  }
+  
+  .elite-badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold
+           shadow-sm;
+  }
+  
+  .elite-badge-success {
+    @apply bg-green-100 text-green-700 border border-green-200;
+  }
+  
+  .elite-badge-warning {
+    @apply bg-orange-100 text-orange-700 border border-orange-200;
+  }
+  
+  .elite-badge-info {
+    @apply bg-blue-100 text-blue-700 border border-blue-200;
+  }
+  
+  .elite-badge-purple {
+    @apply bg-purple-100 text-purple-700 border border-purple-200;
+  }
+  
+  .elite-gradient {
+    @apply bg-gradient-to-r from-blue-600 to-indigo-700;
+  }
+  
+  .elite-gradient-success {
+    @apply bg-gradient-to-r from-emerald-600 to-teal-600;
+  }
+  
+  .elite-gradient-warning {
+    @apply bg-gradient-to-r from-orange-600 to-red-600;
+  }
+  
+  .elite-gradient-purple {
+    @apply bg-gradient-to-r from-purple-600 to-pink-600;
+  }
+  
+  .elite-text-gradient {
+    @apply bg-gradient-to-r from-blue-600 to-indigo-700 bg-clip-text text-transparent;
+  }
+  
+  .elite-icon-container {
+    @apply w-12 h-12 rounded-xl flex items-center justify-center;
+    box-shadow: var(--shadow-md);
+  }
+  
+  .elite-icon-container:hover {
+    box-shadow: var(--shadow-lg);
+  }
+  
+  .elite-icon-container-blue {
+    @apply w-12 h-12 rounded-xl flex items-center justify-center;
+    box-shadow: var(--shadow-blue);
+  }
+  
+  .elite-icon-container-green {
+    @apply w-12 h-12 rounded-xl flex items-center justify-center;
+    box-shadow: var(--shadow-green);
+  }
+  
+  .elite-icon-container-purple {
+    @apply w-12 h-12 rounded-xl flex items-center justify-center;
+    box-shadow: var(--shadow-purple);
+  }
+  
+  .elite-icon-container-orange {
+    @apply w-12 h-12 rounded-xl flex items-center justify-center;
+    box-shadow: var(--shadow-orange);
+  }
+  
+  .elite-metric {
+    @apply elite-metric-medium;
+  }
+  
+  .elite-metric-label {
+    @apply elite-body-small font-medium;
+  }
+  
+  .elite-progress-bar {
+    @apply w-full bg-gray-200 rounded-full h-2 overflow-hidden;
+  }
+  
+  .elite-progress-fill {
+    @apply h-full rounded-full transition-all duration-500 ease-out;
+    background: linear-gradient(90deg, #3b82f6 0%, #1d4ed8 50%, #1e40af 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .elite-progress-fill::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    animation: elite-progress-shine 2s ease-in-out infinite;
+  }
+  
+  .elite-progress-fill-success {
+    @apply h-full rounded-full transition-all duration-500 ease-out;
+    background: linear-gradient(90deg, #10b981 0%, #059669 50%, #047857 100%);
+  }
+  
+  .elite-progress-fill-warning {
+    @apply h-full rounded-full transition-all duration-500 ease-out;
+    background: linear-gradient(90deg, #f59e0b 0%, #d97706 50%, #b45309 100%);
+  }
+  
+  .elite-progress-fill-purple {
+    @apply h-full rounded-full transition-all duration-500 ease-out;
+    background: linear-gradient(90deg, #8b5cf6 0%, #7c3aed 50%, #6d28d9 100%);
+  }
+  
+  /* 圓形進度條 */
+  .elite-progress-circle {
+    @apply relative w-16 h-16 rounded-full;
+    background: conic-gradient(#3b82f6 0deg, #e5e7eb 0deg);
+    transition: all 0.5s ease;
+  }
+  
+  .elite-progress-circle::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 12px;
+    height: 12px;
+    background: #3b82f6;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  /* 數據指標樣式 */
+  .elite-metric-card {
+    @apply bg-white rounded-xl p-4 border border-gray-100;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s ease;
+  }
+  
+  .elite-metric-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+  }
+  
+  .elite-metric-value {
+    @apply text-3xl font-bold text-gray-900;
+    font-family: var(--font-family-sans);
+    line-height: 1;
+  }
+  
+  .elite-metric-change {
+    @apply text-sm font-medium;
+  }
+  
+  .elite-metric-change.positive {
+    @apply text-green-600;
+  }
+  
+  .elite-metric-change.negative {
+    @apply text-red-600;
+  }
+  
+  .elite-metric-change.neutral {
+    @apply text-gray-500;
+  }
+  
+  /* 圖表容器 */
+  .elite-chart-container {
+    @apply bg-white rounded-xl p-6 border border-gray-100;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .elite-chart-title {
+    @apply text-lg font-semibold text-gray-900 mb-4;
+  }
+  
+  /* 迷你圖表 */
+  .elite-sparkline {
+    @apply w-full h-8;
+    background: linear-gradient(90deg, #3b82f6 0%, #1d4ed8 100%);
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .elite-sparkline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.2) 50%, transparent 100%);
+    animation: elite-sparkline-shine 3s ease-in-out infinite;
+  }
+  
+  .elite-achievement-badge {
+    @apply flex items-center gap-2 px-4 py-2 rounded-xl font-medium text-sm
+           transition-all duration-200;
+  }
+  
+  .elite-achievement-badge.earned {
+    @apply bg-gradient-to-r from-yellow-100 to-orange-100 text-orange-800
+           border border-orange-200 shadow-sm;
+  }
+  
+  .elite-achievement-badge.locked {
+    @apply bg-gray-100 text-gray-500 border border-gray-200;
+  }
+  
+  .elite-streak-dot {
+    @apply w-3 h-3 rounded-full transition-all duration-200;
+  }
+  
+  .elite-streak-dot.active {
+    @apply bg-gradient-to-r from-green-400 to-emerald-500 shadow-sm;
+  }
+  
+  .elite-streak-dot.inactive {
+    @apply bg-gray-200;
+  }
+  
+  .elite-timer-circle {
+    @apply w-16 h-16 rounded-full border-4 border-orange-200 
+           flex items-center justify-center relative;
+  }
+  
+  .elite-timer-circle::before {
+    content: '';
+    @apply absolute inset-0 rounded-full border-4 border-orange-500 
+           border-t-transparent animate-spin;
+  }
+  
+  .elite-timer-text {
+    @apply text-lg font-bold text-orange-700;
+  }
+}
+
+/* 動畫效果 */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes elite-shimmer {
+  0% {
+    transform: translateX(-100%) translateY(-100%) rotate(45deg);
+  }
+  100% {
+    transform: translateX(100%) translateY(100%) rotate(45deg);
+  }
+}
+
+@keyframes elite-float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes elite-breathe {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+}
+
+@keyframes elite-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes elite-progress-shine {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes elite-sparkline-shine {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes elite-metric-count {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes elite-chart-grow {
+  from {
+    transform: scaleY(0);
+    transform-origin: bottom;
+  }
+  to {
+    transform: scaleY(1);
+    transform-origin: bottom;
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.6s ease-out;
+}
+
+.animate-pulse-slow {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-elite-shimmer {
+  animation: elite-shimmer 3s ease-in-out infinite;
+}
+
+.animate-elite-float {
+  animation: elite-float 20s linear infinite;
+}
+
+.animate-elite-breathe {
+  animation: elite-breathe 4s ease-in-out infinite;
+}
+
+.animate-elite-rotate {
+  animation: elite-rotate 20s linear infinite;
+}
+
+.animate-elite-progress-shine {
+  animation: elite-progress-shine 2s ease-in-out infinite;
+}
+
+.animate-elite-sparkline-shine {
+  animation: elite-sparkline-shine 3s ease-in-out infinite;
+}
+
+.animate-elite-metric-count {
+  animation: elite-metric-count 0.6s ease-out;
+}
+
+.animate-elite-chart-grow {
+  animation: elite-chart-grow 0.8s ease-out;
+}
+
+/* 響應式設計 */
+@media (max-width: 1024px) {
+  /* 平板端優化 */
+  .elite-heading-1 {
+    @apply text-4xl;
+  }
+  
+  .elite-heading-2 {
+    @apply text-3xl;
+  }
+  
+  .elite-chart-container {
+    @apply p-4;
+  }
+  
+  .elite-metric-card {
+    @apply p-3;
+  }
+}
+
+@media (max-width: 768px) {
+  /* 移動端優化 */
+  .elite-card {
+    @apply rounded-xl p-4;
+  }
+  
+  .elite-card-elevated {
+    @apply rounded-xl p-4;
+  }
+  
+  .elite-icon-container {
+    @apply w-10 h-10;
+  }
+  
+  .elite-icon-container-blue,
+  .elite-icon-container-green,
+  .elite-icon-container-purple,
+  .elite-icon-container-orange {
+    @apply w-10 h-10;
+  }
+  
+  .elite-metric {
+    @apply text-xl;
+  }
+  
+  .elite-metric-value {
+    @apply text-2xl;
+  }
+  
+  .elite-heading-1 {
+    @apply text-3xl;
+  }
+  
+  .elite-heading-2 {
+    @apply text-2xl;
+  }
+  
+  .elite-heading-3 {
+    @apply text-xl;
+  }
+  
+  .elite-heading-4 {
+    @apply text-lg;
+  }
+  
+  .elite-heading-5 {
+    @apply text-base;
+  }
+  
+  .elite-heading-6 {
+    @apply text-sm;
+  }
+  
+  .elite-body-large {
+    @apply text-base;
+  }
+  
+  .elite-body {
+    @apply text-sm;
+  }
+  
+  .elite-body-small {
+    @apply text-xs;
+  }
+  
+  .elite-chart-container {
+    @apply p-4;
+  }
+  
+  .elite-chart-title {
+    @apply text-base;
+  }
+  
+  .elite-metric-card {
+    @apply p-3;
+  }
+  
+  .elite-button {
+    @apply px-4 py-2 text-sm;
+  }
+  
+  .elite-button-primary {
+    @apply px-4 py-2 text-sm;
+  }
+  
+  .elite-badge {
+    @apply px-2 py-1 text-xs;
+  }
+  
+  .elite-progress-circle {
+    @apply w-12 h-12;
+  }
+  
+  .elite-timer-circle {
+    @apply w-12 h-12;
+  }
+  
+  .elite-timer-text {
+    @apply text-sm;
+  }
+  
+  .elite-sparkline {
+    @apply h-6;
+  }
+  
+  /* 背景圖案在移動端減少密度 */
+  .elite-bg-pattern-dots {
+    background-size: 40px 40px;
+  }
+  
+  .elite-bg-pattern-grid {
+    background-size: 30px 30px;
+  }
+  
+  .elite-bg-pattern-hexagon {
+    background-size: 60px 60px;
+  }
+  
+  .elite-bg-pattern-circles {
+    background-size: 80px 80px;
+  }
+  
+  .elite-bg-pattern-lines {
+    background-size: 100px 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  /* 小屏手機優化 */
+  .elite-heading-1 {
+    @apply text-2xl;
+  }
+  
+  .elite-heading-2 {
+    @apply text-xl;
+  }
+  
+  .elite-heading-3 {
+    @apply text-lg;
+  }
+  
+  .elite-heading-4 {
+    @apply text-base;
+  }
+  
+  .elite-heading-5 {
+    @apply text-sm;
+  }
+  
+  .elite-heading-6 {
+    @apply text-xs;
+  }
+  
+  .elite-metric-value {
+    @apply text-xl;
+  }
+  
+  .elite-metric {
+    @apply text-lg;
+  }
+  
+  .elite-card {
+    @apply p-3;
+  }
+  
+  .elite-chart-container {
+    @apply p-3;
+  }
+  
+  .elite-metric-card {
+    @apply p-2;
+  }
+  
+  .elite-button {
+    @apply px-3 py-2 text-xs;
+  }
+  
+  .elite-button-primary {
+    @apply px-3 py-2 text-xs;
+  }
+  
+  .elite-icon-container {
+    @apply w-8 h-8;
+  }
+  
+  .elite-icon-container-blue,
+  .elite-icon-container-green,
+  .elite-icon-container-purple,
+  .elite-icon-container-orange {
+    @apply w-8 h-8;
+  }
+  
+  .elite-progress-circle {
+    @apply w-10 h-10;
+  }
+  
+  .elite-timer-circle {
+    @apply w-10 h-10;
+  }
+  
+  .elite-timer-text {
+    @apply text-xs;
+  }
+  
+  .elite-sparkline {
+    @apply h-4;
+  }
+  
+  /* 進一步減少背景圖案密度 */
+  .elite-bg-pattern-dots {
+    background-size: 30px 30px;
+  }
+  
+  .elite-bg-pattern-grid {
+    background-size: 20px 20px;
+  }
+  
+  .elite-bg-pattern-hexagon {
+    background-size: 40px 40px;
+  }
+  
+  .elite-bg-pattern-circles {
+    background-size: 60px 60px;
+  }
+  
+  .elite-bg-pattern-lines {
+    background-size: 80px 80px;
+  }
+}
+
+@media (max-width: 320px) {
+  /* 超小屏手機優化 */
+  .elite-heading-1 {
+    @apply text-xl;
+  }
+  
+  .elite-heading-2 {
+    @apply text-lg;
+  }
+  
+  .elite-metric-value {
+    @apply text-lg;
+  }
+  
+  .elite-metric {
+    @apply text-base;
+  }
+  
+  .elite-card {
+    @apply p-2;
+  }
+  
+  .elite-chart-container {
+    @apply p-2;
+  }
+  
+  .elite-metric-card {
+    @apply p-2;
+  }
+  
+  .elite-button {
+    @apply px-2 py-1 text-xs;
+  }
+  
+  .elite-button-primary {
+    @apply px-2 py-1 text-xs;
+  }
+  
+  .elite-icon-container {
+    @apply w-6 h-6;
+  }
+  
+  .elite-icon-container-blue,
+  .elite-icon-container-green,
+  .elite-icon-container-purple,
+  .elite-icon-container-orange {
+    @apply w-6 h-6;
+  }
+  
+  .elite-progress-circle {
+    @apply w-8 h-8;
+  }
+  
+  .elite-timer-circle {
+    @apply w-8 h-8;
+  }
+  
+  .elite-timer-text {
+    @apply text-xs;
+  }
+  
+  .elite-sparkline {
+    @apply h-3;
+  }
+}
+/* ?��?：�??��??��???*/
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-success {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes check-bounce {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.4s ease-out;
+}
+
+.animate-pulse-success {
+  animation: pulse-success 0.6s ease-in-out;
+}
+
+.animate-check-bounce {
+  animation: check-bounce 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
