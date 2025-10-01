@@ -91,3 +91,7 @@ temp/
 # CSV exports (?犖鞈?)
 eagle-export.csv
 *-export.csv
+
+# Internal documentation (?折??靽?)
+/docs/
+!/docs/README.md
